@@ -18,6 +18,8 @@ will be downloaded and installed during shards install.
 
 ## Usage
 
+Docs: https://zph.github.io/xxhash/
+
 ```crystal
 require "xxhash"
 
@@ -27,6 +29,12 @@ XXHash.xxh32("aaaaaa") => 	2653344721 : UInt32
 XXHash.xxh64
 XXHash.xxh3_64
 XXHash.xxh128
+```
+
+Or locally
+
+```
+crystal docs && open docs/index.html
 ```
 
 ## Development
