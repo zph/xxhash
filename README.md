@@ -1,6 +1,7 @@
 # xxhash
 
-TODO: Write a description here
+Implements Crystal lang bindings for xxhash using underlying C library. Required dependency
+will be downloaded and installed during shards install.
 
 ## Installation
 
@@ -10,6 +11,7 @@ TODO: Write a description here
    dependencies:
      xxhash:
        github: zph/xxhash
+       version: ~> 1.0.0
    ```
 
 2. Run `shards install`
@@ -18,13 +20,18 @@ TODO: Write a description here
 
 ```crystal
 require "xxhash"
-```
 
-TODO: Write usage instructions here
+XXHash.xxh32("aaaaaa") => 	2653344721 : UInt32
+
+# Available functions with 2 argument arity
+XXHash.xxh64
+XXHash.xxh3_64
+XXHash.xxh128
+```
 
 ## Development
 
-TODO: Write development instructions here
+Fork, `make deps` and code.
 
 ## Contributing
 
