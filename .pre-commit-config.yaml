@@ -15,6 +15,12 @@ repos:
     language: system
     files: \.cr?$
     pass_filenames: false
+  - id: docs
+    name: 'make docs'
+    entry: crystal docs && git add docs/*
+    language: system
+    files: \.cr?$
+    pass_filenames: false
 - repo: https://github.com/pre-commit/pre-commit-hooks
   rev: v2.0.0
   hooks:

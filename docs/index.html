@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 0.28.0">
+
+
+<link href="css/style.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="js/doc.js"></script>
+<script type="text/javascript">
+  CrystalDoc.base_path = "";
+</script>
+
+  <meta id="repository-name" content="github.com/zph/xxhash.cr">
+  <title>README - github.com/zph/xxhash.cr</title>
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="repository-links">
+      <a href="index.html">README</a>
+    </div>
+  </div>
+
+  <div class="search-results" class="hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+
+  <li class=" " data-id="github.com/zph/xxhash.cr/XXHash" data-name="xxhash">
+      <a href="XXHash.html">XXHash</a>
+
+    </li>
+
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1>xxhash</h1>
+
+<p>Implements Crystal lang bindings for xxhash using underlying C library. Required dependency
+will be downloaded and installed during shards install.</p>
+
+<h2>Installation</h2>
+
+<ol><li>Add the dependency to your <code>shard.yml</code>:</li></ol>
+
+<p><code></code>`yaml
+   dependencies:</p>
+
+<pre><code> xxhash:
+   github: zph<span class="s">/xxhash
+   version: ~&gt; 1.0.0</code></pre>
+
+<p><code></code>`</p>
+
+<ol><li>Run <code>shards install</code></li></ol>
+
+<h2>Usage</h2>
+
+<pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;xxhash&quot;</span>
+
+<span class="t">XXHash</span>.xxh32(<span class="s">&quot;aaaaaa&quot;</span>) => 	<span class="n">2653344721</span> : <span class="t">UInt32</span>
+
+<span class="c"># Available functions with 2 argument arity</span>
+<span class="t">XXHash</span>.xxh64
+<span class="t">XXHash</span>.xxh3_64
+<span class="t">XXHash</span>.xxh128</code></pre>
+
+<h2>Development</h2>
+
+<p>Fork, <code>make deps</code> and code.</p>
+
+<h2>Contributing</h2>
+
+<ol><li>Fork it (&lt;https://github.com/zph/xxhash/fork>)</li><li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li><li>Commit your changes (<code>git commit -am 'Add some feature'</code>)</li><li>Push to the branch (<code>git push origin my-new-feature</code>)</li><li>Create a new Pull Request</li></ol>
+
+<h2>Contributors</h2>
+
+<ul><li><a href="https://github.com/zph" target="_blank">Zander Hill</a> - creator and maintainer</li></ul>
+</div>
+</body>
+</html>
