@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Download, unpack, make, copy .o into place
+# Install xxhash locally into vendor folder
 
 set -CEeuo pipefail
 IFS=$'\n\t'
@@ -8,10 +8,15 @@ shopt -s extdebug
 VERSION="0.7.0"
 ARCHIVE="https://github.com/Cyan4973/xxHash/archive/v$VERSION.tar.gz"
 
-set -x
-
-START_DIR="$PWD"
+STARTDIR="$PWD"
 WORKDIR="$(mktemp -d)"
+VENDORDIR="$STARTDIR/vendor"
+
+on_exit(){
+  rm -rf "$WORKDIR"
+}
+
+trap on_exit EXIT SIGINT
 
 # TODO: add trap for ensuring deletion
 
@@ -19,21 +24,17 @@ wget "$ARCHIVE" -O "$WORKDIR/xxhash.tar.gz"
 
 OS="$(uname -a | awk '{print tolower($1)}')"
 
-# On mac copy dylib into .so
-# On linux copy so
 (
   cd "$WORKDIR" || exit 1
   tar -xvf xxhash.tar.gz
   cd "xxHash-$VERSION" || exit 1
   make
-  ls -lah .
-  cp -f "libxx*" "$START_DIR/vendor/"
+  cp -f libxx* "$VENDORDIR/"
   case "$OS" in
     darwin)
-      cp -f "libxxhash.$VERSION.dylib" "$START_DIR/vendor/libxxhash.$VERSION.so" ;;
-    *)
-      cp -f "libxxhash.$VERSION.so" "$START_DIR/vendor/" ;;
+      # Hack to avoid having to macro this in place when on osx vs linux
+      ln -s "$VENDORDIR/libxxhash.$VERSION.dylib" "$VENDORDIR/libxxhash.$VERSION.so" ;;
   esac
 )
 
-rm -rf "$WORKDIR"
+echo "-> xxhash dependency compiled successfully"

@@ -8,5 +8,9 @@ crystal: 0.29.0
 
 license: MIT
 
+# Installed automatically via scripts
+libraries:
+  libxxhash: ~> "0.7.0"
+
 scripts:
-  postinstall: bash bin/install_deps.sh
+  postinstall: make deps

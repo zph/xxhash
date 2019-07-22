@@ -1,8 +1,6 @@
 require "./*"
 
 module XXHash
-  VERSION = "0.1.0"
-
   def self.xxh64(str : String, seed : Number = 0) : Number
     LibXXHash.xxh64(str, str.size, seed.to_u64)
   end

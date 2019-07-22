@@ -13,4 +13,10 @@ tag:
 fmt: $(src)
 	crystal tool format
 
-.PHONY: play fmt
+deps:
+	bash bin/install_deps.sh
+
+clean:
+	rm -rf ./vendor/*
+
+.PHONY: play fmt clean
